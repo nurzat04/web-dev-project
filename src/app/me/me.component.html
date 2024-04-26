@@ -1,0 +1,22 @@
+<a class="home" [routerLink]="['/bar']">
+    Home
+</a>
+<img class="icon" src="../../assets/home-1.svg">
+<div class="user-profile" *ngIf="user">
+    <h2>User Profile</h2>
+    <div>
+        <p><strong>User ID:</strong> {{ user.id }}</p>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Created At:</strong> {{ user.created_at }}</p>
+    </div>
+    <div class="actions">
+        <a [routerLink]="['/about']">Change Password</a>
+        <a [routerLink]="['/about2']">Change Name</a>
+        <a [routerLink]="['/about3']">Change Email</a>
+    </div>
+</div>
+
+<div class="no-user" *ngIf="!user">
+    <p>No user data available. Please make sure you are logged in.</p>
+</div>

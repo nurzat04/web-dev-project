@@ -1,0 +1,60 @@
+<a class="home" [routerLink]="['/']">
+  Home
+</a>
+<img class="icon" src="../../assets/home-1.svg">
+<div class="page">
+  <div class="genre">
+    <div class="g" *ngFor="let g of genre" (click)="selectGenre(g)" [class.selected]="g === selectedGenre">
+      {{ g.name }}
+    </div>
+  </div>
+  <div *ngIf="selectedGenre" class="category">
+    <div *ngFor="let c of categories" (click)="selectCategory(c)" class="cate"
+      [class.selected]="c === selectedCategory">
+      <p> {{ c.name}}</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedCategory" class="books">
+  <div *ngFor="let book of books" (click)="selectBook(book)" class="book">
+    <img [src]="book.image" alt="Book Image" style="width: 160px; padding-left: 20px">  
+    <a [routerLink]="['/book', book.id]"
+      style="font-family:cursive; font-weight:700; font-size: 18px; font-style: italic; color:black; text-decoration: none;">
+      {{ book.title }}</a>
+    <p style="font-size: 14px; color:black;">>{{ book.author }}</p>
+    <a (click)="toggleRateVisibility(book)" style="text-decoration: underline;">rating</a>
+    <p style="color:rgb(193, 34, 34);">${{book.price}}</p>
+    <a (click)="toggleCartVisibility()">🛒</a>
+    <a (click)="addToFavo(book.id)">❤️</a>
+
+    <a style="position: absolute; margin-left: 140px; cursor:pointer" (click)="getBookDetails(book.id)">...</a>
+    <div *ngIf="book.showRate">
+      <p>Total Ratings: {{ rates.total_ratings }}</p>
+      <p>Average Ratings:{{ rates.average_rating }}</p>
+      <p>Comments:</p>
+      <ul>
+        <li *ngFor="let comment of rates.comments">
+          <p>{{ comment.user }} : [{{comment.rating}}]{{ comment.comment }}</p>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="showCart" class="modal">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closeBookDetails()">&times;</span>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" [(ngModel)]="quantities">
+
+        <button (click)="addToCart(book.id)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="book" class="modal">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeBookDetails()">&times;</span>
+      <h2>{{ book.title }}</h2>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Published Date:</strong> {{ book.published_date }}</p>
+      <p><strong>Description:</strong> {{ book.description }}</p>
+    </div>
+  </div>
+</div>

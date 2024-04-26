@@ -1,0 +1,22 @@
+<div class="login-container">
+    <div class="login">Log in🤩</div>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value.username, loginForm.value.password)" class="login-form">
+    <input type="text" id="username" name="username" placeholder="Username" ngModel required>
+    <input type="password" id="password" name="password" placeholder="Password" ngModel required>
+    <button type="submit" class="login-btn">Login</button>
+    <div class="option">Or</div>
+  </form>
+  <div class="fblink">
+    <a>Log in with Facebook</a>
+    <img src="../../assets/facebook.svg">
+  </div>
+  <div class="forget-id">
+    <a [routerLink]="['/help', loginForm.value.username]">Forget password?</a>
+  </div>
+  <div class="page">
+    <div class="signup">
+        <p>Don't have an account?<a [routerLink]="['/signup']">Sign up</a></p>
+    </div>
+  </div>
+</div>
+

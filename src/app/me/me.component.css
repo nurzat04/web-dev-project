@@ -1,0 +1,59 @@
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 65px;
+    margin-top: 5px;
+}
+
+.home {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    opacity: none;
+    font-size: 20px;
+    font-family: cursive;
+    position: absolute;
+    margin-left: 10px;
+}
+
+.user-profile {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.user-profile h2 {
+    margin-top: 0;
+}
+
+.user-profile div {
+    margin-bottom: 10px;
+}
+
+.user-profile p {
+    margin: 5px 0;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.actions a:hover {
+    background-color: #eee;
+}
+
+.no-user {
+    color: #900;
+    margin-top: 20px;
+}

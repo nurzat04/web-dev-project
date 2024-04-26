@@ -1,0 +1,26 @@
+<div *ngIf="cartItems">
+    <div *ngFor="let item of cartItems.cart_items">
+        <p>{{ item.book_title }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Price Per Item: {{ item.price_per_item }}</p>
+        <p>Total Price: {{ item.total_price }}</p>
+        <button style="background-color: white;" (click)="removeFromCart(item.book_id)">❌</button>
+        <button (click)="showAddressInput()">Buy</button>
+        <button (click)="toggleRateVisibility(item)">Rate</button>
+        <div *ngIf="item.showRate">
+            <input type="number" placeholder="rate" [(ngModel)]="rating">
+            <input type="text" [(ngModel)]="comment">
+            <button (click)="rateBook(item)">Rate</button>
+        </div>
+    </div>
+    <div *ngIf="showAddress" class="modal">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <span class="close" (click)="close()">&times;</span>
+            <input type="text" placeholder="Enter your address" [(ngModel)]="address">
+            <button (click)="purchase()">Purchase</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!cartItems">
+    <p>No items in your cart.</p>
+</div>

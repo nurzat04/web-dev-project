@@ -1,0 +1,5 @@
+<form #loginForm="ngForm" (ngSubmit)="findpassword(loginForm.value.email)" class="login-form">
+    <input type="email" id="email" name="email" placeholder="email" ngModel required>
+    <button type="submit" class="login-btn">check</button>
+</form>
+<p>Your password: {{password}} </p>

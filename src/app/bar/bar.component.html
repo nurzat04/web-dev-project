@@ -1,0 +1,72 @@
+<h1>LIBRARY</h1>
+<h4>LIBRARY<br>
+    OF CONGRESS
+</h4>
+<div class="line"></div>
+<div class="links">
+    <!-- <img class="img" src="../../assets/letter-r-book-vector-template-260nw-2384305531.jpg" alt="Your Image"> -->
+
+    <a class="home" [routerLink]="['/bar']">
+        Home
+    </a>
+    <img class="icon" src="../../assets/home-1.svg">
+    <a [routerLink]="['/genre']">
+        Category
+    </a>
+    <img class="icon" src="../../assets/category-2.svg">
+    <!-- <a [routerLink]="['/about']">
+        About
+    </a>
+    <img class="icon" src="../../assets/about.svg"> -->
+    <a [routerLink]="['/help']">
+        Help
+    </a>
+    <img class="icon" src="../../assets/help.svg">
+    <!-- <a *ngIf="!isLoggedIn()" [routerLink]="['/login']">
+        Log in
+    </a> -->
+    <a *ngIf="isLoggedIn()" [routerLink]="['/me']">
+        Me
+    </a>
+    <img *ngIf="isLoggedIn()" class="icon" src="../../assets/profile-1335.svg">
+    <a *ngIf="isLoggedIn()" [routerLink]="['/cart']">
+        Cart
+    </a>
+    <img *ngIf="isLoggedIn()" class="icon" src="../../assets/cart-shopping.svg">
+    <a *ngIf="isLoggedIn()" [routerLink]="['/favorite']">
+        Favorite
+    </a>
+    <img *ngIf="isLoggedIn()" class="icon" src="../../assets/favorite-foodie.svg">
+
+    <button *ngIf="isLoggedIn()" (click)="logout()" class="logout">
+        Log out
+    </button>
+
+    <div *ngIf="!isLoggedIn()" class="service" >
+        <a class="ha"routerLink="/signup">sign up</a>
+        <a class="ha" routerLink="/login">log in</a>
+    </div>
+    <!-- <div *ngIf="!isLoggedIn()" class="dropdown" (mouseenter)="toggleDropdown()" (mouseleave)="toggleDropdown()">
+        <span class="icon">
+            <img class="icon1" src="../../assets/login-2.svg">
+        </span>
+        <div class="dropdown-content" *ngIf="isDropdownOpen">
+            <li routerLink="/signup">sign up</li>
+            <li routerLink="/login">log in</li>
+        </div>
+    </div> -->
+</div>
+<img class="tom-and-jerry" src="../../assets/wallhaven-x8xowv.jpg">
+<div class="search-container" [ngClass]="{'expanded': books.length > 0}">
+    <input type="text" id="searchInput" [(ngModel)]="searchTitle" (input)="getBooks()" placeholder="Search..." aria-label="Search for books" role="search">
+    <div class="search-suggestions" *ngIf="books.length > 0">
+        <ul>
+            <li *ngFor="let book of books" [routerLink]="['/book', book.id]">
+                <div class="search-result">
+                    <p>{{ book.title }}</p>
+                    <p>{{ book.author }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

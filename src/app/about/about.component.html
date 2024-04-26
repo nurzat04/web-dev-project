@@ -1,0 +1,13 @@
+<form #loginForm="ngForm"
+  (ngSubmit)="updatePassword(loginForm.value.username, loginForm.value.email, loginForm.value.old_password)">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" placeholder="Username" ngModel required>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" placeholder="email" ngModel required>
+  <label for="oldPassword">Current password:</label>
+  <input type="password" id="oldpassword" name="old_password" ngModel required>
+  <label for="newPassword">New Password:</label>
+  <input type="password" id="newPassword" name="newPassword" [(ngModel)]="new_password" required>
+
+  <button type="submit">Update Password</button>
+</form>

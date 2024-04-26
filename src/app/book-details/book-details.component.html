@@ -1,0 +1,27 @@
+<div class="page" *ngIf="book">
+  <img [src]="book.image" alt="Book Image" style="width: 160px; padding-left: 20px">  
+  <h2>{{ book.title }}</h2>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Published Date:</strong> {{ book.published_date }}</p>
+  <p><strong>Description:</strong> {{ book.description }}</p>
+  <p><strong>Price:</strong> ${{ book.price }}</p>
+  <p><strong>Quantity:</strong> {{ book.quantity }}</p>
+  <!-- <p><strong>Category:</strong> {{ book.category }}</p> -->
+
+  <button (click)="toggleRateVisibility(book)">Ratings</button>
+
+  <div *ngIf="book.showRate">
+    <p><strong>Total Ratings:</strong> {{ rates.total_ratings }}</p>
+    <p><strong>Average Ratings:</strong> {{ rates.average_rating }}</p>
+    <p><strong>Comments:</strong>
+      <ul>
+        <li *ngFor="let comment of rates.comments">
+          <p>{{ comment.user }} : [{{comment.rating}}]{{ comment.comment }}</p>
+        </li>
+      </ul>
+  </div>
+</div>
+
+<div *ngIf="!book">
+  <p>Loading...</p>
+</div>

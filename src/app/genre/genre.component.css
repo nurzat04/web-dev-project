@@ -1,0 +1,142 @@
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 65px;
+    margin-top: 5px;
+    /* position:absolute; */
+}
+
+.home {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    opacity: none;
+    font-size: 20px;
+    font-family: cursive;
+    position: absolute;
+    margin-left: 10px;
+    /* position:absolute; */
+}
+
+.page {
+    background-image: url(../../assets/wallhaven-45x8g5.jpg);
+
+    display: flex;
+    /* flex-direction: column; */
+    margin-top: 20px;
+    background-color: rgb(247, 223, 180);
+    border-radius: 20px;
+    font-family: cursive;
+    font-weight: 600;
+    width:260px;
+}
+
+.genre {
+    display: flex;
+    flex-direction: column;
+    /* display: flex;
+    flex-wrap: wrap;
+    position: relative; */
+}
+
+.g {
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    /* padding: 10px 20px;
+    cursor: pointer; */
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+}
+
+.g.selected {
+    background-color: rgba(253, 248, 238, 0.699);
+    border-top-left-radius: 8px;
+}
+
+.cate {
+    padding-left: 25px;
+    padding-right: 22px;
+    cursor: pointer;
+    background-color: rgba(253, 248, 238, 0.699); 
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: 20px;
+    margin-left: 250px; */
+    position:absolute;
+    left:17%;
+    top:6%;
+    background-color: white;
+    opacity:90%;    
+}
+
+.book {
+    margin: 10px;
+    padding: 10px;
+    border: 1.5px solid #000000;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.463);
+    /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    width:400px;
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    overflow-y: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(0, 0, 0);
+}
+/* your-component.component.css */
+#heartButton {
+    font-size: 24px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  #heartButton .empty {
+    color: black;
+  }
+  
+  #heartButton .full {
+    color: red;
+  }
+  
